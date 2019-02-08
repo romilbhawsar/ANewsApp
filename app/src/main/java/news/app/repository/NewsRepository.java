@@ -1,31 +1,31 @@
 package news.app.repository;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
+import android.content.Context;
+import java.util.List;
+import news.app.model.AppDatabase;
+import news.app.model.beans.News;
+import news.app.model.dao.NewsDAO;
 
 public class NewsRepository {
 
-    /*private Webservice webservice;
+    private NewsDAO newsDAO;
 
-    // Simple in-memory cache. Details omitted for brevity.
-    private UserCache userCache;
+    public NewsRepository(NewsDAO newsDAO){
+        this.newsDAO = newsDAO;
+    }
 
-    public LiveData<User> getUser(int userId) {
-        LiveData<User> cached = userCache.get(userId);
-        if (cached != null) {
-            return cached;
-        }
+    public LiveData<List<News>> getData()
+    {
+        LiveData<List<News>> data = newsDAO.loadLiveData(0,50);
 
-        final MutableLiveData<User> data = new MutableLiveData<>();
-        userCache.put(userId, data);
+        if(data !=null)
+            return data;
 
-        // This implementation is still suboptimal but better than before.
-        // A complete implementation also handles error cases.
-        webservice.getUser(userId).enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                data.setValue(response.body());
-            }
-        });
+        MutableLiveData<List<News>> list = new MutableLiveData<List<News>>();
+
         return data;
-    }*/
+    }
+
 }

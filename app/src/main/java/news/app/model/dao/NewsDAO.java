@@ -22,9 +22,12 @@ public interface NewsDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void saveNewsList(List<News> list);
 
-    @Query("SELECT * FROM news WHERE id = :newsId")
+    @Query("SELECT * FROM news WHERE id = :newsId order by score")
     LiveData<News> load(int newsId);
 
-    @Query("SELECT * FROM news LIMIT :position OFFSET  :offset")
-    LiveData<List<News>> loadData(int position, int offset);
+    @Query("SELECT * FROM news order by score LIMIT :item OFFSET :position")
+    List<News> loadData(int item, int position);
+
+    @Query("SELECT * FROM news order by score LIMIT :item OFFSET :position")
+    LiveData<List<News>> loadLiveData(int item, int position);
 }
