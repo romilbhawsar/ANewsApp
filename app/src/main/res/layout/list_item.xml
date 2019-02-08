@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="news"
+            type="news.app.model.beans.News" />
+
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/view_margin_5"
+        card_view:cardCornerRadius="@dimen/view_margin_5">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorListItemBackground"
+            android:padding="@dimen/view_padding_8">
+
+            <!--List Title TextView-->
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_title"
+                style="@style/StyleListTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{news.title!=null ? news.title: "" }'
+                tool:text="Hockey Night in Canada" />
+
+
+            <!--List Description TextView-->
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_description"
+                style="@style/StyleListDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text='@{news.text!=null ? news.text : ""}'
+                card_view:layout_constraintLeft_toLeftOf="parent"
+                card_view:layout_constraintRight_toLeftOf="@+id/iv_list_image"
+                card_view:layout_constraintTop_toBottomOf="@+id/tv_title"
+                tool:text="It is a well known fact that polar bears are the main mode of transportation in Canada. They consume far less gas and have the added benefit of being difficult to steal." />
+
+
+            <!--List Image-->
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/iv_list_image"
+                android:layout_width="@dimen/image_width"
+                android:layout_height="@dimen/image_height"
+                card_view:layout_constraintRight_toRightOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+</layout>

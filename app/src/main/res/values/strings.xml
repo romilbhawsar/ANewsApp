@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">A News App</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="title_home_screen">News Today</string>
+    <string name="title_search">Search topics and articles</string>
+
+    <string name="ok">Ok</string>
+    <string name="alert">Alert</string>
+    <string name="msg_no_internet_connection">It seems like your device has no internet connection.</string>
+
+</resources>
