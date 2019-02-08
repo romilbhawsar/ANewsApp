@@ -38,9 +38,6 @@ public class HomeActivity extends AppCompatActivity {
         // add home fragment as a base fragment
         addBaseFragment(new HomeFragment());
 
-        // sync data
-        startService(new Intent(this, DataSyncing.class));
-
     }
 
     @Override
